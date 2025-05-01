@@ -1,12 +1,24 @@
+:root {
+  --primary-color: #005aee;
+  --primary-hover: #003bbd;
+  --text-color: #333;
+  --sidebar-bg: #f7f7f7;
+  --sidebar-width: 250px;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, sans-serif;
-  color: #333;
+  color: var(--text-color);
   display: flex;
   justify-content: center;
 }
@@ -18,19 +30,20 @@ body {
 }
 
 .sidebar {
-  width: 250px;
-  background-color: #f7f7f7;
+  width: var(--sidebar-width);
+  background-color: var(--sidebar-bg);
   padding: 20px;
   position: fixed;
   height: 100%;
   overflow-y: auto;
   transition: transform 0.3s ease;
+  z-index: 1000;
 }
 
 .sidebar h2 {
   margin-bottom: 1rem;
   font-size: 1.5rem;
-  color: #005aee;
+  color: var(--primary-color);
 }
 
 .sidebar nav ul {
@@ -43,26 +56,27 @@ body {
 
 .sidebar nav ul li a {
   text-decoration: none;
-  color: #005aee;
+  color: var(--primary-color);
   font-weight: bold;
   font-size: 1rem;
   transition: color 0.2s;
 }
 
 .sidebar nav ul li a:hover {
-  color: #003bbd;
+  color: var(--primary-hover);
 }
 
 .content {
-  margin-left: 270px;
+  margin-left: calc(var(--sidebar-width) + 20px);
   padding: 20px;
-  width: calc(100% - 270px);
+  flex: 1;
+  min-width: 0;
 }
 
 .toggle-button {
   display: none;
   font-size: 1.2rem;
-  background-color: #005aee;
+  background-color: var(--primary-color);
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -70,23 +84,21 @@ body {
   position: fixed;
   top: 10px;
   left: 10px;
-  z-index: 1000;
+  z-index: 1100;
+  transition: background-color 0.2s;
 }
 
 .toggle-button:hover {
-  background-color: #003bbd;
+  background-color: var(--primary-hover);
 }
 
 @media screen and (max-width: 768px) {
   .sidebar {
     transform: translateX(-100%);
-    position: fixed;
-    width: 250px;
+    width: var(--sidebar-width);
     left: 0;
     top: 0;
     height: 100%;
-    z-index: 999;
-    transition: transform 0.3s ease;
   }
 
   .sidebar.sidebar-active {
@@ -102,8 +114,4 @@ body {
     padding-top: 60px;
     width: 100%;
   }
-}
-
-html {
-  scroll-behavior: smooth;
 }

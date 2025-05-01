@@ -4,13 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tech Documentation</title>
-    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <aside class="sidebar">
+      <aside
+        class="sidebar"
+        role="complementary"
+        aria-label="Sidebar Navigation"
+      >
         <h2>Documentation</h2>
-        <nav>
+        <nav role="navigation" aria-label="Table of contents">
           <ul>
             <li><a href="#introduction">Introduction</a></li>
             <li><a href="#getting-started">Getting Started</a></li>
@@ -21,7 +25,8 @@
           </ul>
         </nav>
       </aside>
-      <main class="content">
+
+      <main class="content" role="main">
         <section id="introduction">
           <h2>Introduction</h2>
           <p>
@@ -31,6 +36,7 @@
             to our project.
           </p>
         </section>
+
         <section id="getting-started">
           <h2>Getting Started</h2>
           <p>
@@ -45,6 +51,7 @@
             configurations.
           </p>
         </section>
+
         <section id="syntax">
           <h2>Syntax</h2>
           <p>
@@ -54,6 +61,7 @@
           <pre><code>const result = Feature.methodName(parameters);</code></pre>
           <p>Refer to the API section for detailed method explanations.</p>
         </section>
+
         <section id="examples">
           <h2>Examples</h2>
           <p>
@@ -67,6 +75,7 @@ Feature.methodName({ option: true });</code></pre>
             library’s capabilities.
           </p>
         </section>
+
         <section id="api">
           <h2>API Reference</h2>
           <p>The API provides a list of available methods and properties:</p>
@@ -82,6 +91,7 @@ Feature.methodName({ option: true });</code></pre>
           </ul>
           <p>Check each method for parameters and expected return values.</p>
         </section>
+
         <section id="contributing">
           <h2>Contributing</h2>
           <p>If you'd like to contribute, please follow these steps:</p>
